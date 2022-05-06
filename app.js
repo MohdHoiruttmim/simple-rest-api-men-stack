@@ -1,7 +1,8 @@
 const express = require("express");
 const cors = require("cors");
 const mongoose = require("mongoose");
-const taskRoute = require("./routes/taskRoute.js")
+const taskRoute = require("./routes/taskRoute.js");
+const { getTask } = require("./controller/taskController.js");
 
 const app = express();
 mongoose.connect(
@@ -19,7 +20,9 @@ db.once("open", () => console.log("Connected to MongoDB"));
 
 app.use(cors());
 app.use(express.json());
-app.use(taskRoute)
+app.use(taskRoute.route)
+
+// app.get("/task", getTask);
 
 app.listen(5000, () => {
   console.log(`server is running on http://localhost:5000`);

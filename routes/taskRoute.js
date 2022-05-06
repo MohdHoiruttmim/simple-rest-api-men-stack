@@ -4,4 +4,4 @@ const { getTask } = require("../controller/taskController.js");
 
 route.get('/task', getTask);
 
-export default route;
+exports.route = route;

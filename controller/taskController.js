@@ -6,7 +6,7 @@ const task = require('../models/taskModels.js');
 //     res.json(listTask)
 // }
 
-const getTask = async (req, res) => {
+exports.getTask = async (req, res) => {
     try{
         const listTask = await task.model.find();
         res.json(listTask)
@@ -15,4 +15,13 @@ const getTask = async (req, res) => {
     }
 }
 
-exports.getTask = getTask;
+exports.getTaskById = async (req, res) => {
+    try{
+        const listTask = await task.model.findById(req.params.id);
+        res.json(listTask)
+    } catch(err){
+        res.status(500).json({message: err.message})
+    }
+}
+
+// exports.getTask = getTask;

@@ -42,4 +42,13 @@ exports.deleteTask = async (req, res) => {
         res.status(400).json({message: err.message})
     }
 }
+
+exports.editTask = async (req, res) => {
+    try{
+        const updatedTask = await task.model.updateOne({_id:req.params.id}, {$set: req.body});
+        res.status(200).json(updatedTask)
+    } catch(err){
+        res.status(400).json({message: err.message})
+    }
+}
 // exports.getTask = getTask;

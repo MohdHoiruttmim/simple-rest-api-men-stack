@@ -4,12 +4,14 @@ const {
         getTask, 
         getTaskById, 
         insertTask,
-        deleteTask
+        deleteTask,
+        editTask
     } = require("../controller/taskController.js");
 
 route.get('/task', getTask);
 route.get('/task/:id', getTaskById);
 route.post('/add', insertTask);
-route.delete('/del/:id', deleteTask)
+route.delete('/del/:id', deleteTask);
+route.patch('/update/:id', editTask)
 
 exports.route = route;

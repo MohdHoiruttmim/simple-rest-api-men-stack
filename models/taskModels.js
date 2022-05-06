@@ -1,10 +1,10 @@
 const mongoose = require("mongoose");
 
-const Task = mongoose.Schema({
+const createTask = mongoose.Schema({
     list:{
         type:String,
         required:true
     }
 })
 
-export default mongoose.model('Task', User);
+export default mongoose.model('createTask', User);

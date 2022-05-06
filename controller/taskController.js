@@ -24,4 +24,13 @@ exports.getTaskById = async (req, res) => {
     }
 }
 
+exports.insertTask = async (req, res) => {
+    const insertTask = new task.model(req.body)
+    try{
+        const insertedUser = await insertTask.save();
+        res.status(201).json(insertedUser)
+    } catch(err){
+        res.status(400).json({message: err.message})
+    }
+}
 // exports.getTask = getTask;

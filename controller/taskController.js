@@ -33,4 +33,13 @@ exports.insertTask = async (req, res) => {
         res.status(400).json({message: err.message})
     }
 }
+
+exports.deleteTask = async (req, res) => {
+    try{
+        const deletedTask = await task.model.deleteOne({_id:req.params.id});
+        res.status(200).json(deletedTask)
+    } catch(err){
+        res.status(400).json({message: err.message})
+    }
+}
 // exports.getTask = getTask;
